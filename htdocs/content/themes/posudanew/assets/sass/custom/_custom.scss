@@ -1,0 +1,35 @@
+a {
+  color: #000;
+  text-decoration: underline;
+}
+
+p {
+  margin-bottom: 0 !important;
+}
+
+.ucase, a {
+  text-transform: uppercase;
+
+}
+
+.sidebar {
+  &__item {
+    padding: 5px 0;
+  }
+}
+
+.product {
+  border: 1px solid #660000;
+  padding: 10px;
+
+  &-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, 1fr);
+    gap: 15px 5px;
+
+  }
+}
+
+@import "header";
+@import "footer";
