@@ -8,32 +8,25 @@
 </head>
 <body @php(body_class())>
 <div class="container">
-  <div id="page" class="site">
-    <a class="skip-link screen-reader-text" href="#content">{{ esc_html__('Skip to content', THEME_TD) }}</a>
-    {{-- Шапка сайта --}}
-    @include('parts.content-header')
+  {{-- Шапка сайта --}}
+  @include('parts.content-header')
+  <main>
+    <div class="row">
+      @include('parts.content-left-sidebar')
 
-    <div id="content" class="site-content">
-      <div id="primary" class="content-area">
-        <main id="main" class="site-main">
-          @yield('content')
-        </main>
-      </div>
-      <!-- Sidebar -->
-      @if(is_active_sidebar('sidebar-1'))
-        <aside id="secondary" class="widget-area">
-          @php(dynamic_sidebar('sidebar-1'))
-        </aside>
-    @endif
-    <!-- End sidebar -->
-    </div><!-- #content -->
+      @if(is_home() || is_front_page())
+        @include('shop.banner')
+      @endif
 
-    {{-- Подвал сайта --}}
-    @include('parts.content-footer')
+      @yield('content')
+    </div>
+  </main>
 
-    {{$theme_url}}
-  </div><!-- #page -->
-</div>
+</div><!-- #content -->
+
+{{-- Подвал сайта --}}
+@include('parts.content-footer')
+
 @footer
 
 </body>

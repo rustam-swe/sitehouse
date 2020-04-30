@@ -3,7 +3,7 @@
 /**
  * Application routes.
  */
-Route::any('/', 'ShopController@index');
+Route::any('/', 'ShopController@archive');
 
 Route::any('/shop', 'ShopController@archive');
 Route::any('/product_category', 'ShopController@archive');
