@@ -4,6 +4,7 @@
   use Themosis\Support\Facades\Action;
   use Themosis\Support\Facades\Filter;
 
+
   /**
    * Adds custom classes to the array of body classes.
    *
@@ -58,6 +59,10 @@
   /*
    * URL сайта доступно глобально
    */
+//  View::composer(['/', 'category', 'product'], function($view){
+//    $theme_url = app('wp.theme')->getUrl();
+//    $view->with('theme_url', $theme_url);
+//  });
   View::share(['theme_url' => app('wp.theme')->getUrl()]);
   global $product;
   View::share(['product' => $product]);

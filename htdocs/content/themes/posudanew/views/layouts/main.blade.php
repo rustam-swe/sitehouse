@@ -11,20 +11,26 @@
   {{-- Шапка сайта --}}
   @include('parts.content-header')
   <div class="content-wrapper">
-    <aside class="aside">
-      @include('parts.content-left-sidebar')
-    </aside>
-    <main class="main">
+    @php($show)
+    @if(!is_product() && !is_cart() && !is_checkout())
+      <aside class="aside">
+        @include('parts.content-left-sidebar')
+      </aside>
+      <main class="main">
+        @else
+          <main class="main_full-width">
+            @endif
 
-      @if(is_home() || is_front_page())
-        @include('shop.banner')
-      @endif
 
-      @yield('content')
+            @if(is_home() || is_front_page())
+              @include('shop.banner')
+            @endif
 
-      @yield('seo-block')
+            @yield('content')
 
-    </main>
+            @yield('seo-block')
+
+          </main>
   </div>
 
 </div><!-- #content -->

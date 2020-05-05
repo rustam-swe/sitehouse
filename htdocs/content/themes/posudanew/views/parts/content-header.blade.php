@@ -12,20 +12,42 @@
 
     <div class="search-bar">
       <form action="/" method="get">
-        <input type="text" name="s" id="search" value="<?php the_search_query(); ?>" placeholder="Поиск среди 10 000 товаров..."/>
+        <input type="text" name="s" id="search" value="<?php the_search_query(); ?>"
+               placeholder="Поиск среди 10 000 товаров..."/>
         <button type="submit" class="submit-btn"><i class="fas fa-search"></i></button>
       </form>
     </div>
 
     <div class="contacts">
-      <div class="contacts__label">Звоните нам:</div>
-      <div class="contacts__phone">
-        <a href="tel:+74872792910">+7(4872)79-29-10</a>
+      <div class="contacts__icon"><i class="fas fa-phone-alt"></i></div>
+      <div class="contacts__info">
+        <div class="contacts__label">Звоните нам:</div>
+        <div class="contacts__phone">
+          <a href="tel:{{the_field('phone', 'options')}}">{{the_field('phone', 'options')}}</a>
+        </div>
       </div>
     </div>
 
-    <div class="cart">Корзина</div>
+    {{--    <div class="cart">@php(woocommerce_mini_cart( [ 'list_class' => 'my-css-class' ] ))</div>--}}
+    <div class="header-cart">
+      <div class="header-cart__icon"><i class="fas fa-shopping-cart"></i></div>
+      <div class="header-cart__info">
+        <div class="header-cart__title">
+          <a href="{{esc_url( wc_get_cart_url() )}}">Корзина</a></div>
+        <div class="header-cart__content">
+          @if(WC()->cart->get_cart_contents_count() > 1)
+            @php($products_total_count = WC()->cart->get_cart_contents_count())
+            @php($total_price = (int)WC()->cart->get_total(''))
+            {{$products_total_count}} x {{$total_price}}
+          @else
+            Торваров нет
+          @endif
+        </div>
+        <div class="login-register">
 
+        </div>
+      </div>
+    </div>
 
   </div><!-- .site-branding -->
 
