@@ -1,0 +1,25 @@
+.sidebar {
+  &__title {
+    padding: 5px 0;
+    text-align: center;
+    color: #660000;
+    border-bottom: 1px solid gray;
+  }
+
+  &-nav li {
+    list-style-type: none;
+  }
+
+  &__item {
+    padding: 5px 0;
+  }
+
+  &__menu {
+    padding: 10px 15px;
+    border: 1px solid #660000;
+  }
+}
+
+.payment-systems{
+  margin-top: 15px;
+}

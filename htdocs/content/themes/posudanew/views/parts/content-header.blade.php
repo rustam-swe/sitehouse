@@ -43,8 +43,15 @@
             Торваров нет
           @endif
         </div>
-        <div class="login-register">
-
+        <div class="authorization">
+          {{-- login and return to the current page --}}
+          @if(is_user_logged_in())
+            <a href="{{wp_logout_url(get_permalink())}}" class="log-in-out">Выйти</a>
+          @else
+            <a href="{{wp_registration_url()}}" class="register">Регистрация</a>
+            /
+            <a href="{{wp_login_url(get_permalink())}}" class="log-in-out">Войти</a>
+          @endif
         </div>
       </div>
     </div>
@@ -59,7 +66,7 @@
               aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      {{-- Основное навигационное меню --}}
+      {{-- Main nav menu --}}
       @php(
         wp_nav_menu( array(
           'theme_location'    => 'header-menu',

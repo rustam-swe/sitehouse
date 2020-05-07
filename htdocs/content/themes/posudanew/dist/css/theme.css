@@ -980,9 +980,12 @@ p {
   margin-bottom: 0 !important;
 }
 
-.ucase,
-a {
+.ucase {
   text-transform: uppercase;
+}
+
+.menu-item {
+  padding: 5px 0;
 }
 
 .home-slider__slide {
@@ -1001,7 +1004,7 @@ a {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px 5px;
-  margin: 15px auto;
+  margin: 0 auto 15px;
   grid-area: content;
 }
 
@@ -1021,12 +1024,17 @@ a {
   grid-area: sidebar;
 }
 
-.sidebar {
-  padding: 10px 15px;
+.fa-arrow-right {
+  margin-right: 10px;
 }
 
-.sidebar_left {
-  border: 1px solid #660000;
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.main_full-width {
+  width: 100%;
 }
 
 .sidebar__title {
@@ -1044,22 +1052,32 @@ a {
   padding: 5px 0;
 }
 
-.menu-item {
-  padding: 5px 0;
+.sidebar__menu {
+  padding: 10px 15px;
+  border: 1px solid #660000;
 }
 
-.fa-arrow-right {
-  margin-right: 10px;
+.payment-systems {
+  margin-top: 15px;
 }
 
-.main {
-  width: 70%;
-  display: flex;
-  flex-direction: column;
+/*
+# WooCommerce and Bootstrap styles conflicts.
+# Solution based on issue on github: Columns classes (col-1 and col-2) conflicts with Bootstrap v4 #15793
+# Link: https://github.com/woocommerce/woocommerce/issues/15793
+ */
+
+.woocommerce-billing-fields .form-row,
+.woocommerce-shipping-fields .form-row,
+.woocommerce form .form-row {
+  display: block;
 }
 
-.main_full-width {
-  width: 100%;
+.woocommerce .col2-set .col-1,
+.woocommerce-page .col2-set .col-1,
+.woocommerce .col2-set .col-2,
+.woocommerce-page .col2-set .col-2 {
+  max-width: unset;
 }
 
 .footer {
