@@ -74,6 +74,9 @@
       return view('pages.default',['theme_url' => $this->theme_url]);
     }
 
+    public function search(){
+      return view('pages.search');
+    }
   }
 
 

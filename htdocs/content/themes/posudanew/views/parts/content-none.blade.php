@@ -1,6 +1,6 @@
 <section class="no-results not-found">
     <header class="page-header">
-        <h1 class="page-title">{{ esc_html__('Nothing Found', THEME_TD) }}</h1>
+        <h1 class="page-title">{{ esc_html__('По вашему запросу ничего не найдено', THEME_TD) }}</h1>
     </header><!-- .page-header -->
     <div class="page-content">
         @if(is_home() && current_user_can('publish_posts'))
@@ -18,7 +18,7 @@
                 ) !!}
             </p>
         @elseif(is_search())
-            <p>{{ esc_html__('Sorry, but nothing matched your search terms. Please try again with some different keywords.', THEME_TD) }}</p>
+            <p>{{ esc_html__('Попробуйте ввести другой поисковый запрос.', THEME_TD) }}</p>
             {!! get_search_form(false) !!}
         @else
             <p>{{ esc_html__('It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps searching can help.', THEME_TD) }}</p>

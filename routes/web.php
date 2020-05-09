@@ -13,6 +13,7 @@ Route::any('/product_tag', 'ShopController@archive');
 Route::any('/product', 'ShopController@single');
 Route::any('/cart', 'ShopController@cart');
 Route::any('/checkout', 'ShopController@checkout');
+Route::any('/search', 'ShopController@search');
 
 
 

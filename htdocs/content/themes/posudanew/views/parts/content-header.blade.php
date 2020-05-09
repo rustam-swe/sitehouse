@@ -11,8 +11,8 @@
     </div>
 
     <div class="search-bar">
-      <form action="/" method="get">
-        <input type="text" name="s" id="search" value="<?php the_search_query(); ?>"
+      <form action="{{esc_url( home_url( '/' ) )}}" method="get" role="search">
+        <input type="text" name="s" id="s" value="<?php the_search_query(); ?>"
                placeholder="Поиск среди 10 000 товаров..."/>
         <button type="submit" class="submit-btn"><i class="fas fa-search"></i></button>
       </form>
